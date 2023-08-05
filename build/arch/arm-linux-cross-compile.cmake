@@ -13,3 +13,6 @@ set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")  # For C code
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")  # For C++ code
+
+set(THRIFT_DIR /home/wjxh/linux/3rd/tool/thrift)
+set(OPENSSL_DIR /home/wjxh/linux/3rd/tool/openssl)

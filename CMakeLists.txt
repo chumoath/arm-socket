@@ -4,3 +4,4 @@ project(arm-socket)
 
 include(build/arch/add_definite.cmake)
 add_subdirectory(socket)
+add_subdirectory(thrift)
