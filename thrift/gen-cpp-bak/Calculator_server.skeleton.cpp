@@ -20,9 +20,9 @@ class CalculatorHandler : virtual public CalculatorIf {
     // Your initialization goes here
   }
 
-  int32_t ops(const CalDesc& desc) {
+  int32_t add(const int32_t num1, const int32_t num2) {
     // Your implementation goes here
-    printf("ops\n");
+    printf("add\n");
   }
 
 };

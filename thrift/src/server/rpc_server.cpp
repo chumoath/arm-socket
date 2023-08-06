@@ -5,8 +5,18 @@ class CalculatorHandler : public Tutorial::CalculatorIf {
 public:
     CalculatorHandler() {}
 
-    int32_t add(const int32_t num1, const int32_t num2) {
-        return num1 + num2;
+    int32_t ops(const Tutorial::CalDesc & desc) {
+        if (desc.op == "+") {
+            return desc.num1 + desc.num2;
+        } else if (desc.op == "-") {
+            return desc.num1 - desc.num2;
+        } else if (desc.op == "*") {
+            return desc.num1 * desc.num2;
+        } else if (desc.op == "/") {
+            return desc.num1 / desc.num2;
+        } else {
+            return -1;
+        }
     }
 };
 

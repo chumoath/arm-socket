@@ -11,10 +11,16 @@ int main() {
     try {
         transport->open();
 
-        int32_t num1 = 5;
-        int32_t num2 = 3;
-        int32_t result = client.add(num1, num2);
-        std::cout << "Result: " << result << std::endl;
+        Tutorial::CalDesc desc;
+        desc.num1 = 1;
+        desc.num2 = 2;
+        desc.op = "+";
+        int32_t result = client.ops(desc);
+        std::cout << desc.num1 << " + " << desc.num2 << " = " << result << std::endl;
+
+        desc.op = "*";
+        result = client.ops(desc);
+        std::cout << desc.num1 << " * " << desc.num2 << " = " << result << std::endl;
 
         transport->close();
     } catch (apache::thrift::TException &tx) {
