@@ -2,7 +2,7 @@
 #include "Calculator.h"
 
 int main() {
-    std::shared_ptr<apache::thrift::transport::TTransport> socket(new apache::thrift::transport::TSocket("localhost", 9090));
+    std::shared_ptr<apache::thrift::transport::TTransport> socket(new apache::thrift::transport::TSocket("192.168.0.162", 9090));
     std::shared_ptr<apache::thrift::transport::TTransport> transport(new apache::thrift::transport::TBufferedTransport(socket));
     std::shared_ptr<apache::thrift::protocol::TProtocol> protocol(new apache::thrift::protocol::TBinaryProtocol(transport));
 

@@ -1,5 +1,9 @@
 include_directories(inc)
 include_directories(${THRIFT_DIR}/include)
+
+link_directories(/home/wjxh/linux/3rd/tool/openssl/lib)
+link_directories(/home/wjxh/linux/3rd/tool/thrift/lib)
+
 #aux_source_directory(src SRC)
 
 # 真正的实现在 server.cpp 中
@@ -20,12 +24,14 @@ set(SERVER_SRC src/rpc_server.cpp src/Calculator.cpp)
 add_executable(client ${CLIENT_SRC})
 add_executable(server ${SERVER_SRC})
 
-target_link_libraries(client ${OPENSSL_DIR}/lib/libssl.so)
-target_link_libraries(client ${THRIFT_DIR}/lib/libthrift.so)
+# 还是要链接 ssl，否则执行时 还是找不到符号
+
+#target_link_libraries(client ${OPENSSL_DIR}/lib/libssl.so)
+target_link_libraries(client thrift ssl)
 
 
-target_link_libraries(server ${OPENSSL_DIR}/lib/libssl.so)
-target_link_libraries(server ${THRIFT_DIR}/lib/libthrift.so)
+#target_link_libraries(server ${OPENSSL_DIR}/lib/libssl.so)
+target_link_libraries(server thrift ssl)
 
 
 install(TARGETS client DESTINATION app)
